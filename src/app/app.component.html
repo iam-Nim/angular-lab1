@@ -1,0 +1,94 @@
+
+<form>
+<div class="row">
+  <div class="col-12">
+    <h2>Danh sách địa danh</h2>
+  </div>
+  <div class="col-6">
+    <div class="form-group">
+      <label>Tên địa danh: </label>
+      <input [value]="addLab.name" (keyup)="addLab.name=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <img [src]="addLab.img" class="img-fluid" width="300" height="300"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Hình ảnh: </label>
+      <input [value]="addLab.img" (keyup)="addLab.img=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Diện tích: </label>
+      <input [value]="addLab.acreage" (keyup)="addLab.acreage=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Lịch sử địa danh </label>
+      <input [value]="addLab.history" (keyup)="addLab.history=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Tên danh nhân tiêu biểu: </label>
+      <input [value]="addLab.nameCelebrity" (keyup)="addLanb.nameCelebrity=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <img [src]="addLab.imgCelebrity" class="img-fluid" width="300" height="300"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Hình ảnh: </label>
+      <input [value]="addLab.imgCelebrity" (keyup)="addLab.imgCelebrity=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Năm sinh: </label>
+      <input [value]="addLab.birthday" (keyup)="addLab.birthday=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Năm mất: </label>
+      <input [value]="addLab.lostYear" (keyup)="addLab.lostYear=$event.target.value" type="text" class="form-control">
+    </div>
+    <div class="text-center">
+      <button (click)="addNewLab($event)" class="btn btn-sm btn-success">Thêm</button>
+      <button type="reset" class="btn btn-sm btn-success" style="margin-left: 20px">Sửa</button>
+    </div>
+    <div class="text-center">
+    </div>
+  </div>
+</div>
+</form>
+<br>
+<div class="col-12">
+  <table class="table table-bordered table-spriped">
+  <thead class="thead-green">
+    <tr>
+     <th>ID</th>
+      <th>Tên địa danh </th>
+      <th>Hình ảnh</th>
+      <th>Diện tích</th>
+      <th>Lịch sử địa danh</th>
+      <th>Tên danh nhân tiêu biểu</th>
+      <th>Hình ảnh</th>
+      <th>Năm sinh</th>
+      <th>Năm mất</th>
+      <th>Sửa</th>
+      <th>Xóa</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor="let l of lab">
+      <td scope = "row">{{l.id}}</td>
+      <td>{{l.name}}</td>
+      <td><img [src]="l.img" width="150" height="150"></td>
+      <td>{{l.acreage}}</td>
+      <td style="width: 30%">{{l.history}}</td>
+      <td>{{l.nameCelebrity}}</td>
+      <td><img [src]="l.imgCelebrity" width="150" height="150"></td>
+      <td>{{l.birthday}}</td>
+      <td>{{l.lostYear}}</td>
+      <td><button (click)="editLab(l)" class="btn btn-sm btn-danger">Sửa</button></td>
+      <td><button (click)="removeLab(l)" class="btn btn-sm btn-danger">Xóa</button></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
